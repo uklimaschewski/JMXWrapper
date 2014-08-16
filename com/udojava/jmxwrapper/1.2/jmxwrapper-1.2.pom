@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.udojava</groupId>
+	<artifactId>jmxwrapper</artifactId>
+	<version>1.2</version>
+	<name>JMXWrapper</name>
+	<description>JMXWrapper is a wrapper that allows creation of dynamic JMX MBeans through annotations</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>tests</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>tests</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+    <distributionManagement>
+        <repository>
+            <id>PublicMavenRepository</id>
+            <name>Public Local Repository</name>
+            <url>file:///Projekte/maven-repo/</url>
+        </repository>
+    </distributionManagement>
+ 	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+</project>

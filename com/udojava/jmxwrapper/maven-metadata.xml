@@ -3,11 +3,12 @@
   <groupId>com.udojava</groupId>
   <artifactId>jmxwrapper</artifactId>
   <versioning>
-    <release>1.1</release>
+    <release>1.2</release>
     <versions>
       <version>1.0</version>
       <version>1.1</version>
+      <version>1.2</version>
     </versions>
-    <lastUpdated>20130616124908</lastUpdated>
+    <lastUpdated>20140816121819</lastUpdated>
   </versioning>
 </metadata>
