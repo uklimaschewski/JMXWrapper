@@ -34,6 +34,7 @@
 		</plugins>
 	</build>
 	
+	<!--
     <distributionManagement>
         <repository>
             <id>PublicMavenRepository</id>
@@ -41,6 +42,7 @@
             <url>file:///Projekte/maven-repo/</url>
         </repository>
     </distributionManagement>
+ 	-->
  	
 	<dependencies>
 		<dependency>

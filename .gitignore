@@ -1,1 +1,7 @@
-/.project
+/bin
+/target
+.metadata
+.git
+.settings
+.project
+.classpath
