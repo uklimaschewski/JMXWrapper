@@ -52,10 +52,7 @@
 		<testSourceDirectory>tests</testSourceDirectory>
 		<testResources>
 			<testResource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.properties</include>
-				</includes>
+				<directory>tests</directory>
 			</testResource>
 		</testResources>
 		<plugins>
