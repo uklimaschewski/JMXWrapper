@@ -94,38 +94,26 @@ You can check it out directly to an Eclipse project, the necessary files are in 
     src/   The Java sources
     tests/ JUnit tests
 
-### Maven
+### Download / Maven
 
-A pom.xml is provided, that allows to build the project with Maven.
+You can download the binaries, source code and JavaDoc jars from [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.udojava%22%20a%3A%22JMXWrapper%22).
 
-I also put the JMXWrapper to a public Maven repository. The repository location is [uklimaschewski/maven-repo.git](https://github.com/uklimaschewski/maven-repo.git), you will find the JMXWrapper there as an artifact.
+The project and source code in `zip` and `tar.gz` format can also be downloaded from the projects [release area](https://github.com/uklimaschewski/JMXWrapper/releases).
 
-To use JMXWrapper in your Maven project, add the following repository location to your pom.xml:
+To include it in your Maven project, refer to the artifact in your pom:
+````xml
+<dependencies>
+    <dependency>
+        <groupId>com.udojava</groupId>
+        <artifactId>JMXWrapper</artifactId>
+        <version>1.2</version>
+    </dependency>
+</dependencies>
+````
 
-    <repositories>
-        <repository>
-            <id>uklimaschewski-maven-repo</id>
-            <name>Maven repository from uklimaschewski on GitHub</name>
-            <url>https://raw.github.com/uklimaschewski/maven-repo/master</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-
-Then you can add a dependency from this repository to your pom.xml:
-Check the actual JMXWrapper version, here I only give an example entry using versions 1.0.
-You can check the versions at [maven-metadata.xml](https://raw.github.com/uklimaschewski/maven-repo/master/com/udojava/jmxwrapper/maven-metadata.xml).
-
-    <dependencies>
-        <dependency>
-            <groupId>com.udojava</groupId>
-            <artifactId>jmxwrapper</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
- 
 ### Author and License
 
-Copyright 2012 by Udo Klimaschewski
+Copyright 2012-2015 by Udo Klimaschewski
 - [about.me](http://about.me/udo.klimaschewski)
 - [UdoJava.com](http://UdoJava.com)
 
