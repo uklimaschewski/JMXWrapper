@@ -6,6 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ BeanAnnotationTest.class, BeanAttributeTest.class,
-		BeanMethodTest.class, ResourceBundleTest.class, SortingTest.class })
+		BeanMethodTest.class, InheritanceTest.class, ResourceBundleTest.class, SortingTest.class })
 public class AllTests {
 }

@@ -26,6 +26,7 @@
  */package com.udojava.jmx.wrapper;
 
 import java.lang.annotation.Documented;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
@@ -38,6 +39,7 @@ import java.util.Locale;
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
+@Inherited
 public @interface JMXBean {
 	/**
 	 * The name of the class describing this bean, default is the full Java
