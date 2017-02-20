@@ -1,11 +1,12 @@
 package com.udojava.jmx.wrapper;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 import javax.management.IntrospectionException;
+import javax.management.MBeanAttributeInfo;
 import javax.management.MBeanOperationInfo;
 
 import org.junit.Test;
@@ -141,19 +142,17 @@ public class BeanAnnotationTest {
 			SecurityException {
 		JMXBeanWrapper bean = new JMXBeanWrapper(new TestBeanFullyDescribed());
 
-		assertEquals("The stringAttribute name", bean.getMBeanInfo()
-				.getAttributes()[1].getName());
-		assertEquals("The stringAttribute description", bean.getMBeanInfo()
-				.getAttributes()[1].getDescription());
-		assertEquals("java.lang.String",
-				bean.getMBeanInfo().getAttributes()[1].getType());
-		assertEquals("The booleanAttribute name", bean.getMBeanInfo()
-				.getAttributes()[0].getName());
-		assertEquals("The booleanAttribute description", bean.getMBeanInfo()
-				.getAttributes()[0].getDescription());
-		assertEquals("boolean",
-				bean.getMBeanInfo().getAttributes()[0].getType());
-		assertEquals(true, bean.getMBeanInfo().getAttributes()[0].isIs());
+		MBeanAttributeInfo info = getBeanAttributeInfo(bean, "The stringAttribute name");
+		
+		assertNotNull(info);
+		assertEquals("The stringAttribute description", info.getDescription());
+		assertEquals("java.lang.String", info.getType());
+		
+		info = getBeanAttributeInfo(bean, "The booleanAttribute name");
+		assertNotNull(info);
+		assertEquals("The booleanAttribute description", info.getDescription());
+		assertEquals("boolean",	info.getType());
+		assertEquals(true, info.isIs());
 	}
 
 	@Test
@@ -223,18 +222,27 @@ public class BeanAnnotationTest {
 			throws IntrospectionException, SecurityException {
 		JMXBeanWrapper bean = new JMXBeanWrapper(new TestBeanDefaults());
 
-		assertEquals("stringAttribute",
-				bean.getMBeanInfo().getAttributes()[0].getName());
+		MBeanAttributeInfo info = getBeanAttributeInfo(bean, "stringAttribute");
+		assertNotNull(info);
 		assertEquals("",
-				bean.getMBeanInfo().getAttributes()[0].getDescription());
+				info.getDescription());
 		assertEquals("java.lang.String",
-				bean.getMBeanInfo().getAttributes()[0].getType());
-		assertEquals(false, bean.getMBeanInfo().getAttributes()[0].isIs());
-		assertEquals("booleanAttribute",
-				bean.getMBeanInfo().getAttributes()[1].getName());
+				info.getType());
+		assertEquals(false, info.isIs());
+		
+		info = getBeanAttributeInfo(bean, "booleanAttribute");
+		assertNotNull(info);
 		assertEquals("boolean",
-				bean.getMBeanInfo().getAttributes()[1].getType());
-		assertEquals(true, bean.getMBeanInfo().getAttributes()[1].isIs());
+				info.getType());
+		assertEquals(true, info.isIs());
+	}
+	
+	private MBeanAttributeInfo getBeanAttributeInfo(JMXBeanWrapper bean, String attributeName) {
+		for (MBeanAttributeInfo info : bean.getMBeanInfo().getAttributes()) {
+			if (info.getName().equals(attributeName))
+				return info;
+		}
+		return null;
 	}
 
 }
