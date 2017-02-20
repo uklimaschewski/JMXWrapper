@@ -106,14 +106,14 @@ To include it in your Maven project, refer to the artifact in your pom:
     <dependency>
         <groupId>com.udojava</groupId>
         <artifactId>JMXWrapper</artifactId>
-        <version>1.2</version>
+        <version>1.4</version>
     </dependency>
 </dependencies>
 ````
 
 ### Author and License
 
-Copyright 2012-2015 by Udo Klimaschewski
+Copyright 2012-2017 by Udo Klimaschewski
 - [about.me](http://about.me/udo.klimaschewski)
 - [UdoJava.com](http://UdoJava.com)
 
