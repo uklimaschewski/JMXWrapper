@@ -452,8 +452,11 @@ public class JMXBeanWrapper implements DynamicMBean {
 						return method.invoke(bean, params);
 				}
 			} catch (Exception ex) {
-				throw new ReflectionException(ex,
-						"Can't convert signature for operation " + actionName);
+				Throwable cause = ex.getCause() != null ? ex.getCause() : ex;
+				if (cause instanceof Exception) {
+					throw new ReflectionException((Exception) cause, cause.getMessage());
+				}
+				throw new ReflectionException(ex,ex.getMessage());
 			}
 		}
 		throw new MBeanException(new IllegalArgumentException(
